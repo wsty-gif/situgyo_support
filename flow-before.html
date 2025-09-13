@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退職前フロー | 失業保険サポート</title>
+    <meta name="description" content="退職前に準備しておくべき書類や手続きの詳細フローを解説。最大限の給付金を受け取るための準備をサポートします。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        /* フローページ固有のスタイル */
+        .flow-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .flow-hero h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        
+        .flow-hero p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 60px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #2563eb;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 10%;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 10%;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -40px;
+            border-left-color: white;
+            border-right: none;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -40px;
+            border-right-color: white;
+            border-left: none;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 10;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-phase {
+            background: #fbbf24;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .timeline-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        
+        .timeline-description {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .document-list {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .document-list h4 {
+            color: #1f2937;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        
+        .document-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .document-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+            padding-left: 24px;
+        }
+        
+        .document-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .document-list li::before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+        
+        .important-note {
+            background: linear-gradient(135deg, #fef3c7, #fed7aa);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        
+        .important-note h3 {
+            color: #92400e;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        
+        .important-note p {
+            color: #92400e;
+            margin: 0;
+        }
+        
+        .branch-diagram {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .branch-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 32px;
+        }
+        
+        .branch-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        
+        .branch-option {
+            background: #f8fafc;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .branch-option:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+        
+        .branch-option-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+        
+        .branch-option-description {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .branch-result {
+            background: #10b981;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        
+        .checklist {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .checklist h3 {
+            color: #1f2937;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 16px;
+            margin-top: 2px;
+        }
+        
+        .checklist-text {
+            flex: 1;
+            color: #374151;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: row;
+                margin-bottom: 60px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-content::before {
+                left: -40px !important;
+                right: auto !important;
+                border-right-color: white !important;
+                border-left: none !important;
+            }
+            
+            .timeline-marker {
+                left: 30px;
+                transform: none;
+            }
+            
+            .flow-hero h1 {
+                font-size: 28px;
+            }
+            
+            .branch-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">失業保険サポート</div>
+                <nav>
+                    <ul>
+                        <li><a href="/">トップ</a></li>
+                        <li><a href="/diagnosis">無料診断</a></li>
+                        <li><a href="/flow-before">退職前フロー</a></li>
+                        <li><a href="/flow-after">退職後フロー</a></li>
+                        <li><a href="/contact">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="flow-hero">
+        <div class="container">
+            <h1>退職前フロー</h1>
+            <p>退職前に準備しておくべき書類や手続きの詳細フローをご案内します。<br>
+            適切な準備により、最大限の給付金を受け取ることが可能です。</p>
+        </div>
+    </section>
+
+    <!-- 重要なお知らせ -->
+    <section class="container">
+        <div class="important-note">
+            <h3>⚠️ 重要なポイント</h3>
+            <p>退職前の準備が給付金額を大きく左右します。退職予定日の2週間前までには必ずご相談ください。医師の診断書の有無により受給可能額が大幅に変わる可能性があります。</p>
+        </div>
+    </section>
+
+    <!-- 分岐診断 -->
+    <section class="container">
+        <div class="branch-diagram">
+            <div class="branch-title">あなたの状況はどれに当てはまりますか？</div>
+            <div class="branch-options">
+                <div class="branch-option">
+                    <div class="branch-option-title">医師の診断書あり</div>
+                    <div class="branch-option-description">うつ病、適応障害、パニック障害等の診断を受けている</div>
+                    <div class="branch-result">最大250万円の受給可能</div>
+                </div>
+                
+                <div class="branch-option">
+                    <div class="branch-option-title">体調不良を感じている</div>
+                    <div class="branch-option-description">ストレス、不眠、食欲不振等の症状がある</div>
+                    <div class="branch-result">診断書取得で受給額UP</div>
+                </div>
+                
+                <div class="branch-option">
+                    <div class="branch-option-title">会社都合での退職</div>
+                    <div class="branch-option-description">リストラ、倒産、ハラスメント等による退職</div>
+                    <div class="branch-result">給付制限なしで早期受給</div>
+                </div>
+                
+                <div class="branch-option">
+                    <div class="branch-option-title">自己都合での退職</div>
+                    <div class="branch-option-description">転職、キャリアチェンジ等による退職</div>
+                    <div class="branch-result">標準的な失業給付</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- タイムライン -->
+    <section class="container">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">1</div>
+                <div class="timeline-content">
+                    <div class="timeline-phase">退職2週間前</div>
+                    <h3 class="timeline-title">事前相談・診断書の準備</h3>
+                    <p class="timeline-description">
+                        最適な退職タイミングと受給プランを確定します。必要に応じて医師の診断書を取得します。
+                    </p>
+                    
+                    <div class="document-list">
+                        <h4>必要な書類・準備事項</h4>
+                        <ul>
+                            <li>在職証明書（会社に依頼）</li>
+                            <li>給与明細（直近3ヶ月分）</li>
+                            <li>健康保険証のコピー</li>
+                            <li>医師の診断書（該当者のみ）</li>
+                            <li>退職理由の整理と証拠書類</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>やるべきこと：</strong></p>
+                    <ul>
+                        <li>無料相談への申し込み</li>
+                        <li>体調不良がある場合は医療機関での受診</li>
+                        <li>退職理由の詳細な整理</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">2</div>
+                <div class="timeline-content">
+                    <div class="timeline-phase">退職1週間前</div>
+                    <h3 class="timeline-title">退職手続きの最適化</h3>
+                    <p class="timeline-description">
+                        会社への退職届提出と、退職理由の正確な記録を行います。離職票の記載内容を事前に確認します。
+                    </p>
+                    
+                    <div class="document-list">
+                        <h4>重要な確認事項</h4>
+                        <ul>
+                            <li>退職理由の正確な記載</li>
+                            <li>最終出勤日の確定</li>
+                            <li>有給休暇の消化計画</li>
+                            <li>健康保険の切り替え準備</li>
+                            <li>離職票の記載内容事前確認</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>やるべきこと：</strong></p>
+                    <ul>
+                        <li>退職届の正式提出</li>
+                        <li>人事担当者との離職票記載内容の確認</li>
+                        <li>引き継ぎ業務の完了</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">3</div>
+                <div class="timeline-content">
+                    <div class="timeline-phase">退職当日</div>
+                    <h3 class="timeline-title">退職手続きの完了</h3>
+                    <p class="timeline-description">
+                        正式な退職手続きを完了し、必要書類の受け取りを行います。健康保険の切り替えも同日に実施します。
+                    </p>
+                    
+                    <div class="document-list">
+                        <h4>受け取る書類</h4>
+                        <ul>
+                            <li>雇用保険被保険者証</li>
+                            <li>源泉徴収票</li>
+                            <li>健康保険資格喪失証明書</li>
+                            <li>離職票（後日郵送の場合もあり）</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>やるべきこと：</strong></p>
+                    <ul>
+                        <li>会社への返却物の確認</li>
+                        <li>必要書類の受け取り確認</li>
+                        <li>国民健康保険への切り替え手続き</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">4</div>
+                <div class="timeline-content">
+                    <div class="timeline-phase">退職翌日〜1週間</div>
+                    <h3 class="timeline-title">各種保険手続きと申請準備</h3>
+                    <p class="timeline-description">
+                        健康保険、国民年金の切り替えを完了し、ハローワークでの申請に向けて書類を整えます。
+                    </p>
+                    
+                    <div class="document-list">
+                        <h4>手続きする内容</h4>
+                        <ul>
+                            <li>国民健康保険加入手続き</li>
+                            <li>国民年金切り替え手続き</li>
+                            <li>住民税の支払い方法変更</li>
+                            <li>離職票の受け取り確認</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>やるべきこと：</strong></p>
+                    <ul>
+                        <li>市役所での各種保険手続き</li>
+                        <li>離職票が未到着の場合は会社に連絡</li>
+                        <li>ハローワーク申請の準備</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- チェックリスト -->
+    <section class="container">
+        <div class="checklist">
+            <h3>退職前準備チェックリスト</h3>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check1">
+                <label for="check1" class="checklist-text">無料相談の申し込みを完了した</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check2">
+                <label for="check2" class="checklist-text">体調不良がある場合、医療機関を受診し診断書を取得した</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check3">
+                <label for="check3" class="checklist-text">給与明細（直近3ヶ月分）を準備した</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check4">
+                <label for="check4" class="checklist-text">退職理由を詳細に整理し、証拠書類を準備した</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check5">
+                <label for="check5" class="checklist-text">会社に離職票の記載内容について事前確認を取った</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check6">
+                <label for="check6" class="checklist-text">健康保険の切り替え準備を完了した</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check7">
+                <label for="check7" class="checklist-text">国民年金の切り替え準備を完了した</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" class="checklist-checkbox" id="check8">
+                <label for="check8" class="checklist-text">退職後の連絡先を会社に伝えた</label>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA セクション -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>退職前の準備でお困りですか？</h2>
+            <p>専門のコンサルタントが、あなたの状況に応じて最適な準備プランをご提案いたします。<br>
+            退職前の適切な準備により、受給額を最大化できます。</p>
+            
+            <div>
+                <a href="/diagnosis" class="btn btn-primary btn-large" style="margin-right: 16px;">無料診断を受ける</a>
+                <a href="/contact" class="btn btn-secondary btn-large">専門家に相談する</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>失業保険サポート</h3>
+                    <p>退職後の給付金を最大化するプロフェッショナルサポートサービスです。</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <ul>
+                        <li><a href="/diagnosis">無料診断</a></li>
+                        <li><a href="/flow-before">退職前サポート</a></li>
+                        <li><a href="/flow-after">退職後サポート</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>情報</h3>
+                    <ul>
+                        <li><a href="/about">会社概要</a></li>
+                        <li><a href="/privacy">プライバシーポリシー</a></li>
+                        <li><a href="/terms">利用規約</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <ul>
+                        <li><a href="/contact">お問い合わせフォーム</a></li>
+                        <li>営業時間：平日 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 失業保険サポート. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+</body>
+</html>
