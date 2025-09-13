@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 失業保険サポート</title>
+    <meta name="description" content="失業保険サポートに関するお問い合わせはこちらから。専門のコンサルタントがあなたの状況に応じて最適なプランをご提案いたします。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        .contact-hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .contact-hero h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        
+        .contact-hero p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: -60px auto 60px;
+            max-width: 1000px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .contact-option {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-option:hover {
+            transform: translateY(-4px);
+        }
+        
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .contact-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+        
+        .contact-description {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .contact-form-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+        
+        .required {
+            color: #ef4444;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-control.textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .checkbox-input {
+            margin-top: 4px;
+        }
+        
+        .checkbox-label {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #374151;
+        }
+        
+        .submit-section {
+            text-align: center;
+            margin-top: 32px;
+        }
+        
+        .faq-section {
+            background: #f8fafc;
+            padding: 60px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 500;
+            color: #1f2937;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+        
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+        
+        .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-content {
+            padding: 0 20px 20px;
+            color: #6b7280;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h3 {
+            color: #1f2937;
+            margin-bottom: 24px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        
+        .info-item {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .info-label {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
+        .info-value {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1f2937;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container {
+                padding: 32px 24px;
+            }
+            
+            .contact-hero h1 {
+                font-size: 28px;
+            }
+            
+            .contact-options {
+                margin: -40px 20px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">失業保険サポート</div>
+                <nav>
+                    <ul>
+                        <li><a href="/">トップ</a></li>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前フロー</a></li>
+                        <li><a href="/flow-after.html">退職後フロー</a></li>
+                        <li><a href="/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>お問い合わせ</h1>
+            <p>専門のコンサルタントがあなたの状況に応じて<br>最適な失業給付プランをご提案いたします</p>
+        </div>
+    </section>
+
+    <!-- 連絡方法の選択 -->
+    <div class="container">
+        <div class="contact-options">
+            <div class="contact-option">
+                <div class="contact-icon">📞</div>
+                <h3 class="contact-title">電話相談</h3>
+                <p class="contact-description">緊急性の高いご相談や詳しい説明をご希望の方はお電話でご相談ください。</p>
+                <p class="info-value">0120-XXX-XXX</p>
+                <p style="font-size: 14px; color: #6b7280;">平日 9:00-18:00</p>
+            </div>
+            
+            <div class="contact-option">
+                <div class="contact-icon">💬</div>
+                <h3 class="contact-title">無料診断</h3>
+                <p class="contact-description">あなたの状況に応じて受給可能額を無料で診断いたします。</p>
+                <a href="/diagnosis.html" class="btn btn-primary">診断を始める</a>
+            </div>
+            
+            <div class="contact-option">
+                <div class="contact-icon">📧</div>
+                <h3 class="contact-title">メール相談</h3>
+                <p class="contact-description">詳しい状況をお聞かせいただき、最適なプランをご提案いたします。</p>
+                <p style="font-size: 14px; color: #6b7280;">24時間受付・無料</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- お問い合わせフォーム -->
+    <section class="contact-form-section">
+        <div class="form-container">
+            <h2 class="text-center mb-4">メールでのお問い合わせ</h2>
+            
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">お名前 <span class="required">*</span></label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス <span class="required">*</span></label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">電話番号</label>
+                        <input type="tel" name="phone" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">年齢</label>
+                        <select name="age" class="form-control">
+                            <option value="">選択してください</option>
+                            <option value="20代">20代</option>
+                            <option value="30代">30代</option>
+                            <option value="40代">40代</option>
+                            <option value="50代">50代</option>
+                            <option value="60代以上">60代以上</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group-full">
+                    <label class="form-label">現在の状況 <span class="required">*</span></label>
+                    <select name="status" class="form-control" required>
+                        <option value="">選択してください</option>
+                        <option value="退職前（在職中）">退職前（在職中）</option>
+                        <option value="退職後">退職後</option>
+                        <option value="既に申請済み">既に申請済み</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">退職理由</label>
+                        <select name="reason" class="form-control">
+                            <option value="">選択してください</option>
+                            <option value="自己都合退職">自己都合退職</option>
+                            <option value="会社都合退職">会社都合退職</option>
+                            <option value="体調不良">体調不良</option>
+                            <option value="未定">未定</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">医師の診断書</label>
+                        <select name="medical" class="form-control">
+                            <option value="">選択してください</option>
+                            <option value="あり">あり</option>
+                            <option value="なし">なし</option>
+                            <option value="取得予定">取得予定</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group-full">
+                    <label class="form-label">相談内容 <span class="required">*</span></label>
+                    <textarea name="message" class="form-control textarea" placeholder="現在の状況や相談したい内容について詳しくお聞かせください" required></textarea>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy" name="privacy" class="checkbox-input" required>
+                    <label for="privacy" class="checkbox-label">
+                        <a href="/privacy" target="_blank">プライバシーポリシー</a>に同意します <span class="required">*</span>
+                    </label>
+                </div>
+                
+                <div class="submit-section">
+                    <button type="submit" class="btn btn-primary btn-large">送信する</button>
+                    <p style="margin-top: 16px; font-size: 14px; color: #6b7280;">
+                        送信後、2営業日以内に担当者よりご連絡いたします
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- よくある質問 -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">よくある質問</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    相談は本当に無料ですか？
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-content">
+                    はい、初回相談は完全に無料です。お客様の状況をお聞きし、最適なプランをご提案いたします。費用が発生する場合は事前に必ずご説明いたします。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    既に退職してしまいましたが、対応可能ですか？
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-content">
+                    はい、退職後でも対応可能です。ただし、退職後の期間や申請状況により選択できるプランが限られる場合があります。まずはお気軽にご相談ください。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    医師の診断書がないと利用できませんか？
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-content">
+                    いいえ、診断書がなくても利用可能なプランがあります。ただし、診断書がある場合により多くの給付金を受け取れる可能性が高くなります。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    どのくらいの期間で効果が出ますか？
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-content">
+                    退職後1週間以内にハローワークで適切な申請を行うことで、最短1ヶ月後から給付を受けることができます。プランにより期間は異なります。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    サポート内容について詳しく教えてください
+                    <span class="faq-arrow">▼</span>
+                </button>
+                <div class="faq-content">
+                    書類の準備から申請手続き、継続的な手続きサポートまで、給付金を受け取るための全工程をサポートいたします。専門知識を活かして最適なプランをご提案します。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 会社情報 -->
+    <div class="container">
+        <div class="contact-info">
+            <h3>会社情報</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">営業時間</div>
+                    <div class="info-value">平日 9:00-18:00</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">定休日</div>
+                    <div class="info-value">土日祝日</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">所在地</div>
+                    <div class="info-value">東京都</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">設立</div>
+                    <div class="info-value">2024年</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>失業保険サポート</h3>
+                    <p>退職後の給付金を最大化するプロフェッショナルサポートサービスです。</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <ul>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前サポート</a></li>
+                        <li><a href="/flow-after.html">退職後サポート</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>情報</h3>
+                    <ul>
+                        <li><a href="/about">会社概要</a></li>
+                        <li><a href="/privacy">プライバシーポリシー</a></li>
+                        <li><a href="/terms">利用規約</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <ul>
+                        <li><a href="/contact.html">お問い合わせフォーム</a></li>
+                        <li>営業時間：平日 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 失業保険サポート. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script>
+        // フォーム送信処理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // フォームデータの取得
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // 簡単なバリデーション
+            if (!data.name || !data.email || !data.status || !data.message || !data.privacy) {
+                alert('必須項目を入力してください');
+                return;
+            }
+            
+            if (!isValidEmail(data.email)) {
+                alert('正しいメールアドレスを入力してください');
+                return;
+            }
+            
+            // 送信処理（実際のプロジェクトでは適切なエンドポイントに送信）
+            alert('お問い合わせを受け付けました。2営業日以内にご連絡いたします。');
+            
+            // フォームをリセット
+            this.reset();
+        });
+    </script>
+</body>
+</html>

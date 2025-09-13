@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>失業保険サポート | 最大250万円の給付金を受け取るためのプロフェッショナルサポート</title>
+    <meta name="description" content="退職後の失業給付を最大10ヶ月間、合計250万円まで受け取るためのプロフェッショナルサポートサービス。退職前・退職後どちらでも対応可能です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        /* ページ固有のスタイル */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .hero-stat {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+        
+        .comparison-section {
+            background: #f8fafc;
+            padding: 60px 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 48px;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .comparison-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+        
+        .comparison-card.standard .comparison-title {
+            color: #6b7280;
+        }
+        
+        .comparison-card.supported .comparison-title {
+            color: #2563eb;
+        }
+        
+        .comparison-amount {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 24px 0;
+        }
+        
+        .comparison-card.standard .comparison-amount {
+            color: #6b7280;
+        }
+        
+        .comparison-card.supported .comparison-amount {
+            color: #2563eb;
+        }
+        
+        .comparison-features {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .comparison-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .comparison-features li:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+        
+        .symptom-card {
+            background: #fef2f2;
+            border: 2px solid #fca5a5;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .symptom-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 4px solid #2563eb;
+        }
+        
+        .benefit-number {
+            background: #2563eb;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-amount {
+                font-size: 36px;
+            }
+            
+            .cta-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">失業保険サポート</div>
+                <nav>
+                    <ul>
+                        <li><a href="/">トップ</a></li>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前フロー</a></li>
+                        <li><a href="/flow-after.html">退職後フロー</a></li>
+                        <li><a href="/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインビジュアル -->
+    <section class="hero">
+        <div class="container">
+            <h1>失業保険をもっと早く・多くもらえる</h1>
+            <p>退職後にもらえる失業給付は通常3ヶ月間ですが、<br>
+            申請方法によっては最大10ヶ月間もらえることがあると知っていますか？</p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">最大250万円</div>
+                    <div>受給可能額</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">10ヶ月間</div>
+                    <div>受給期間</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4人に1人</div>
+                    <div>が失業保険を利用</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 48px;">
+                <a href="/diagnosis.html" class="btn btn-primary btn-large" style="margin-right: 16px;">無料診断を始める</a>
+                <a href="#about" class="btn btn-secondary btn-large">詳しく見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービス概要 -->
+    <section id="about" class="container">
+        <h2 class="section-title">失業保険サポートとは</h2>
+        
+        <div class="comparison-section">
+            <div class="container">
+                <div class="comparison-grid">
+                    <div class="comparison-card standard">
+                        <div class="comparison-title">通常の申請の場合</div>
+                        <div class="flow">
+                            <div class="flow-item">
+                                <div class="flow-number">1</div>
+                                <div class="flow-title">申請</div>
+                            </div>
+                            <div class="flow-item">
+                                <div class="flow-number">2</div>
+                                <div class="flow-title">給付制限2ヶ月</div>
+                            </div>
+                            <div class="flow-item">
+                                <div class="flow-number">3</div>
+                                <div class="flow-title">給付3ヶ月</div>
+                            </div>
+                        </div>
+                        <div class="comparison-amount">52.8万円</div>
+                        <p>給付期間：3ヶ月間</p>
+                    </div>
+                    
+                    <div class="comparison-card supported">
+                        <div class="comparison-title">サポートを受ける場合</div>
+                        <div style="background: #dcfce7; padding: 16px; border-radius: 8px; margin: 16px 0; color: #166534; font-weight: bold;">
+                            給付制限なし！
+                        </div>
+                        <div class="flow">
+                            <div class="flow-item">
+                                <div class="flow-number">1</div>
+                                <div class="flow-title">申請</div>
+                            </div>
+                            <div class="flow-item">
+                                <div class="flow-number">2</div>
+                                <div class="flow-title">給付3ヶ月</div>
+                            </div>
+                            <div class="flow-item">
+                                <div class="flow-number">3</div>
+                                <div class="flow-title">給付+7ヶ月</div>
+                            </div>
+                        </div>
+                        <div class="comparison-amount">250万円</div>
+                        <p>給付期間：10ヶ月間</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 症状チェック -->
+    <section class="container">
+        <h2 class="section-title">このような症状が出たら危険信号です</h2>
+        
+        <div class="symptoms-grid">
+            <div class="symptom-card">
+                <div class="symptom-icon">😴</div>
+                <h3>一日中眠い</h3>
+                <p>慢性的な疲労が蓄積されている可能性があります</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon">😰</div>
+                <h3>体がだるい・疲れやすい</h3>
+                <p>身体的・精神的なストレスが限界に近づいています</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon">🤔</div>
+                <h3>思考力が落ちている</h3>
+                <p>集中力の低下は過労のサインです</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon">😔</div>
+                <h3>食欲がない</h3>
+                <p>ストレスによる身体への影響が現れています</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <p style="font-size: 18px; margin: 32px 0; color: #dc2626;">
+                当てはまる症状がある方は、「すぐに就職することが難しい」と<br>
+                ハローワークから判断される場合があり、失業給付の受給期間が<br>
+                最大5～12ヶ月になる可能性があります。
+            </p>
+        </div>
+    </section>
+
+    <!-- サポート内容 -->
+    <section class="container">
+        <h2 class="section-title">失業保険サポートを利用することで解決できます</h2>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-number">1</div>
+                <h3>給付月数が10ヶ月に！</h3>
+                <p>10ヶ月間で最大250万円の支給。最短でご退職日の1ヶ月後から受け取れます！</p>
+                <small>※45～60歳の場合は12ヶ月間、勤続6ヶ月～1年の場合は5ヶ月間</small>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">2</div>
+                <h3>再就職手当が一括給付！</h3>
+                <p>最大で120万円の一括給付で、安心して次のステップに進めます！</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-number">3</div>
+                <h3>リスクなし</h3>
+                <p>全額返金保証があるためリスクは0！給付日数が増えずに失業給付の申請が通った場合も保証対象！</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 受給フロー -->
+    <section class="container">
+        <h2 class="section-title">受給までの流れ</h2>
+        
+        <div class="flow">
+            <div class="flow-item">
+                <div class="flow-number">1</div>
+                <div class="flow-title">会社を退職</div>
+                <div class="flow-description">退職手続きを適切に行います</div>
+                <div class="flow-arrow"></div>
+            </div>
+            <div class="flow-item">
+                <div class="flow-number">2</div>
+                <div class="flow-title">ハローワークに申請</div>
+                <div class="flow-description">必要書類を準備して申請します</div>
+                <div class="flow-arrow"></div>
+            </div>
+            <div class="flow-item">
+                <div class="flow-number">3</div>
+                <div class="flow-title">失業給付受給決定</div>
+                <div class="flow-description">受給が決定し、給付が開始されます</div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="/flow-before.html" class="btn btn-primary" style="margin-right: 16px;">退職前フローを見る</a>
+            <a href="/flow-after.html" class="btn btn-secondary">退職後フローを見る</a>
+        </div>
+    </section>
+
+    <!-- 実績例 -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">受給実績例</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card standard">
+                    <div class="comparison-title">月収30万円の方（通常申請）</div>
+                    <div class="comparison-features">
+                        <li>毎月給付：17.6万円×3ヶ月間</li>
+                        <li>最大給付金額：合計52.8万円</li>
+                        <li>再就職手当：最大39.96万円</li>
+                    </div>
+                </div>
+                
+                <div class="comparison-card supported">
+                    <div class="comparison-title">月収30万円の方（サポート利用）</div>
+                    <div class="comparison-features">
+                        <li>毎月給付：17.6万円×10ヶ月間</li>
+                        <li>最大給付金額：合計176万円</li>
+                        <li>再就職手当：最大123万円</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA セクション -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>まずは無料診断で受給可能額を確認</h2>
+            <p>退職をお考えの方は給付金を受給できる可能性があります！<br>
+            実際に「いくら受給できるか」「どのような条件があるか」確認してみましょう。</p>
+            
+            <div>
+                <a href="/diagnosis.html" class="btn btn-primary btn-large" style="margin-right: 16px;">無料診断を始める</a>
+                <a href="/contact.html" class="btn btn-secondary btn-large">相談する</a>
+            </div>
+            
+            <p style="margin-top: 24px; font-size: 14px; opacity: 0.8;">
+                カメラはオフのままでOK！完全無料で診断いたします。
+            </p>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>失業保険サポート</h3>
+                    <p>退職後の給付金を最大化するプロフェッショナルサポートサービスです。</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <ul>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前サポート</a></li>
+                        <li><a href="/flow-after.html">退職後サポート</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>情報</h3>
+                    <ul>
+                        <li><a href="/about">会社概要</a></li>
+                        <li><a href="/privacy">プライバシーポリシー</a></li>
+                        <li><a href="/terms">利用規約</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <ul>
+                        <li><a href="/contact.html">お問い合わせフォーム</a></li>
+                        <li>営業時間：平日 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 失業保険サポート. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+</body>
+</html>

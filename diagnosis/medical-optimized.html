@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傷病手当金 + 失業給付の最適化プラン | 失業保険サポート</title>
+    <meta name="description" content="医師の診断書を活用した傷病手当金と失業給付の組み合わせプラン。最大250万円、10ヶ月間の受給が可能です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .detail-hero {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .detail-hero h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        
+        .detail-hero .amount {
+            font-size: 64px;
+            font-weight: bold;
+            margin: 24px 0;
+        }
+        
+        .detail-hero .period {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        .plan-overview {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin: -60px auto 40px;
+            max-width: 800px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        
+        .overview-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .overview-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+        
+        .overview-label {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .advantage-section {
+            background: #f0fdf4;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+        
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .advantage-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #10b981;
+        }
+        
+        .advantage-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        
+        .advantage-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+        
+        .advantage-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .detailed-flow {
+            padding: 60px 0;
+        }
+        
+        .flow-step {
+            display: flex;
+            margin-bottom: 60px;
+            align-items: flex-start;
+        }
+        
+        .flow-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin: 0 32px;
+        }
+        
+        .step-content {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-phase {
+            background: #fbbf24;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .step-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        
+        .step-description {
+            color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .step-actions {
+            background: #f0fdf4;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .step-actions h5 {
+            color: #166534;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        
+        .step-actions ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-actions li {
+            padding: 4px 0;
+            color: #166534;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .step-actions li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .requirements-section {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+        
+        .requirements-title {
+            color: #92400e;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .requirements-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .requirement-item {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .requirement-item h5 {
+            color: #92400e;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        
+        .requirement-item p {
+            color: #92400e;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .flow-step {
+                flex-direction: column !important;
+                align-items: center;
+            }
+            
+            .step-number {
+                margin: 0 0 24px 0;
+            }
+            
+            .detail-hero .amount {
+                font-size: 48px;
+            }
+            
+            .detail-hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">失業保険サポート</div>
+                <nav>
+                    <ul>
+                        <li><a href="/">トップ</a></li>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前フロー</a></li>
+                        <li><a href="/flow-after.html">退職後フロー</a></li>
+                        <li><a href="/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="detail-hero">
+        <div class="container">
+            <h1>傷病手当金 + 失業給付の最適化プラン</h1>
+            <div class="amount">最大250万円</div>
+            <div class="period">受給期間：最大10ヶ月</div>
+        </div>
+    </section>
+
+    <!-- プラン概要 -->
+    <div class="container">
+        <div class="plan-overview">
+            <h2 class="text-center mb-3">プラン概要</h2>
+            <p class="text-center">医師の診断書を活用し、傷病手当金と失業給付を組み合わせることで最大の受給が可能です。</p>
+            
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <div class="overview-number">250万円</div>
+                    <div class="overview-label">最大受給額</div>
+                </div>
+                <div class="overview-item">
+                    <div class="overview-number">10ヶ月</div>
+                    <div class="overview-label">受給期間</div>
+                </div>
+                <div class="overview-item">
+                    <div class="overview-number">1ヶ月後</div>
+                    <div class="overview-label">最短開始時期</div>
+                </div>
+                <div class="overview-item">
+                    <div class="overview-number">給付制限なし</div>
+                    <div class="overview-label">特別な条件</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主なメリット -->
+    <section class="advantage-section">
+        <div class="container">
+            <h2 class="section-title">このプランの主なメリット</h2>
+            
+            <div class="advantage-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3 class="advantage-title">最大受給額</h3>
+                    <p class="advantage-description">通常の失業給付と比較して、最大4.7倍の給付金を受け取ることが可能です。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">⏰</div>
+                    <h3 class="advantage-title">給付制限なし</h3>
+                    <p class="advantage-description">医師の診断書により、3ヶ月の給付制限期間を回避できます。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">📋</div>
+                    <h3 class="advantage-title">専門サポート</h3>
+                    <p class="advantage-description">複雑な申請手続きを専門家が完全サポートいたします。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🏥</div>
+                    <h3 class="advantage-title">治療との両立</h3>
+                    <p class="advantage-description">療養しながら給付金を受け取り、回復後に就職活動を開始できます。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🔄</div>
+                    <h3 class="advantage-title">柔軟な期間設定</h3>
+                    <p class="advantage-description">体調の回復状況に合わせて受給期間を調整できます。</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">✅</div>
+                    <h3 class="advantage-title">法的に適正</h3>
+                    <p class="advantage-description">すべて法律に基づいた適正な申請方法です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 詳細フロー -->
+    <section class="detailed-flow">
+        <div class="container">
+            <h2 class="section-title">詳細な受給フロー</h2>
+            
+            <div class="flow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-phase">退職前準備</div>
+                    <h3 class="step-title">医師の診断書取得</h3>
+                    <p class="step-description">
+                        うつ病、適応障害、パニック障害等の診断書を医師に発行してもらいます。診断名は就労困難な状態であることが重要です。
+                    </p>
+                    
+                    <div class="step-actions">
+                        <h5>必要な行動</h5>
+                        <ul>
+                            <li>心療内科・精神科での受診</li>
+                            <li>症状の詳細な説明</li>
+                            <li>診断書の発行依頼</li>
+                            <li>就労困難である旨の記載確認</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-phase">退職手続き</div>
+                    <h3 class="step-title">適切な退職理由の設定</h3>
+                    <p class="step-description">
+                        診断書をもとに、退職理由を「体調不良による退職」として設定します。離職票の記載内容を事前に会社と確認します。
+                    </p>
+                    
+                    <div class="step-actions">
+                        <h5>重要なポイント</h5>
+                        <ul>
+                            <li>退職理由を「体調不良」で統一</li>
+                            <li>会社への診断書の提示</li>
+                            <li>離職票記載内容の事前確認</li>
+                            <li>退職日の調整</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-phase">退職後1週間以内</div>
+                    <h3 class="step-title">ハローワークでの特別申請</h3>
+                    <p class="step-description">
+                        診断書を持参してハローワークで申請を行います。就職困難者として認定されることで、給付制限が免除されます。
+                    </p>
+                    
+                    <div class="step-actions">
+                        <h5>持参書類</h5>
+                        <ul>
+                            <li>医師の診断書（原本）</li>
+                            <li>離職票（1）（2）</li>
+                            <li>雇用保険被保険者証</li>
+                            <li>身分証明書・印鑑</li>
+                            <li>通帳・写真</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-phase">申請から1ヶ月後</div>
+                    <h3 class="step-title">給付開始</h3>
+                    <p class="step-description">
+                        待期期間（7日）経過後、給付制限なしで基本手当の支給が開始されます。療養に専念しながら受給できます。
+                    </p>
+                    
+                    <div class="step-actions">
+                        <h5>受給中の注意点</h5>
+                        <ul>
+                            <li>月1回程度の職業相談</li>
+                            <li>体調回復の経過報告</li>
+                            <li>医師の診断書更新（必要に応じて）</li>
+                            <li>求職活動は体調に合わせて調整</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <div class="step-phase">受給期間中</div>
+                    <h3 class="step-title">受給期間の延長申請</h3>
+                    <p class="step-description">
+                        体調の回復状況に応じて、受給期間を最大10ヶ月まで延長できます。医師の診断書により継続的にサポートを受けられます。
+                    </p>
+                    
+                    <div class="step-actions">
+                        <h5>延長の条件</h5>
+                        <ul>
+                            <li>継続的な医師の診断</li>
+                            <li>就労困難状態の継続</li>
+                            <li>定期的な職業相談</li>
+                            <li>体調回復に向けた取り組み</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 必要な条件 -->
+    <section class="container">
+        <div class="requirements-section">
+            <h3 class="requirements-title">このプランの適用条件</h3>
+            <div class="requirements-list">
+                <div class="requirement-item">
+                    <h5>医師の診断</h5>
+                    <p>うつ病、適応障害、パニック障害等の診断書が必要です。症状により就労困難であることが重要です。</p>
+                </div>
+                
+                <div class="requirement-item">
+                    <h5>雇用保険加入歴</h5>
+                    <p>退職日以前2年間に12ヶ月以上の雇用保険加入実績が必要です。</p>
+                </div>
+                
+                <div class="requirement-item">
+                    <h5>退職理由</h5>
+                    <p>体調不良による退職である必要があります。自己都合退職でも診断書があれば適用可能です。</p>
+                </div>
+                
+                <div class="requirement-item">
+                    <h5>年齢制限</h5>
+                    <p>基本的に年齢制限はありませんが、65歳未満であることが条件です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA セクション -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>このプランについて詳しく相談したい方へ</h2>
+            <p>医師の診断書を活用した最適化プランについて、専門のコンサルタントが詳しくご説明いたします。<br>
+            あなたの状況に応じて、最適な申請方法をご提案いたします。</p>
+            
+            <div>
+                <a href="/contact.html" class="btn btn-primary btn-large" style="margin-right: 16px;">専門家に相談する</a>
+                <a href="/diagnosis.html" class="btn btn-secondary btn-large">他のプランも見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>失業保険サポート</h3>
+                    <p>退職後の給付金を最大化するプロフェッショナルサポートサービスです。</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <ul>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前サポート</a></li>
+                        <li><a href="/flow-after.html">退職後サポート</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>情報</h3>
+                    <ul>
+                        <li><a href="/about">会社概要</a></li>
+                        <li><a href="/privacy">プライバシーポリシー</a></li>
+                        <li><a href="/terms">利用規約</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <ul>
+                        <li><a href="/contact.html">お問い合わせフォーム</a></li>
+                        <li>営業時間：平日 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 失業保険サポート. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/common.js"></script>
+</body>
+</html>

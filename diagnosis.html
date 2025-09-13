@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無料診断 | 失業保険サポート</title>
+    <meta name="description" content="あなたに最適な失業給付プランを無料で診断いたします。退職前・退職後の状況に応じて最適なサポートをご提案します。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        /* 診断ページ固有のスタイル */
+        .diagnosis-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .step-indicator {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .step-indicator span {
+            font-size: 18px;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .question-content {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-title {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1f2937;
+        }
+        
+        .options {
+            margin-bottom: 40px;
+        }
+        
+        .option-label {
+            display: block;
+            background: #f8fafc;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .option-label:hover {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+        
+        .option-label input {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .option-label input:checked + .option-text {
+            color: #1d4ed8;
+        }
+        
+        .option-label:has(input:checked) {
+            background: #eff6ff;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .option-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #374151;
+            transition: color 0.3s ease;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        
+        .navigation-buttons .btn {
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .diagnosis-results {
+            text-align: center;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 48px;
+            border-radius: 16px;
+            margin: 32px 0;
+        }
+        
+        .result-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+        
+        .result-amount {
+            font-size: 64px;
+            font-weight: bold;
+            margin: 32px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-description {
+            font-size: 20px;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .result-period {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .recommended-steps {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .recommended-steps h4 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            color: #1f2937;
+        }
+        
+        .recommended-steps ol {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .recommended-steps li {
+            counter-increment: step-counter;
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+            padding-left: 60px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .recommended-steps li:last-child {
+            border-bottom: none;
+        }
+        
+        .recommended-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 16px;
+            background: #2563eb;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        
+        .intro-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .intro-section h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        
+        .intro-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .question-content {
+                padding: 32px 24px;
+            }
+            
+            .question-title {
+                font-size: 24px;
+            }
+            
+            .result-amount {
+                font-size: 48px;
+            }
+            
+            .result-title {
+                font-size: 24px;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+            }
+            
+            .navigation-buttons .btn {
+                max-width: none;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .intro-section h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">失業保険サポート</div>
+                <nav>
+                    <ul>
+                        <li><a href="/">トップ</a></li>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前フロー</a></li>
+                        <li><a href="/flow-after.html">退職後フロー</a></li>
+                        <li><a href="/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- イントロセクション -->
+    <section class="intro-section">
+        <div class="container">
+            <h1>無料診断</h1>
+            <p>あなたの状況に応じて、最適な失業給付プランを診断いたします。<br>
+            退職前・退職後どちらの状況でも対応可能です。</p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>受給可能額の算出</h3>
+                    <p>あなたが受け取れる給付金の最大額を計算します</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📋</div>
+                    <h3>最適なプランの提案</h3>
+                    <p>状況に応じて最も有利なプランをご提案します</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3">即座に結果表示</h3>
+                    <p>診断結果をその場で確認できます</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 診断コンテンツ -->
+    <div class="diagnosis-container">
+        <div id="diagnosisContainer">
+            <!-- 診断内容はJavaScriptで動的に生成されます -->
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>失業保険サポート</h3>
+                    <p>退職後の給付金を最大化するプロフェッショナルサポートサービスです。</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <ul>
+                        <li><a href="/diagnosis.html">無料診断</a></li>
+                        <li><a href="/flow-before.html">退職前サポート</a></li>
+                        <li><a href="/flow-after.html">退職後サポート</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>情報</h3>
+                    <ul>
+                        <li><a href="/about">会社概要</a></li>
+                        <li><a href="/privacy">プライバシーポリシー</a></li>
+                        <li><a href="/terms">利用規約</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <ul>
+                        <li><a href="/contact.html">お問い合わせフォーム</a></li>
+                        <li>営業時間：平日 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 失業保険サポート. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script>
+        // 診断ツールの初期化
+        let diagnosisTool;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            diagnosisTool = new DiagnosisTool('diagnosisContainer');
+        });
+    </script>
+</body>
+</html>
